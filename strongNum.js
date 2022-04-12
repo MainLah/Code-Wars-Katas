@@ -1,11 +1,17 @@
 function strong(n) {
-    const arr = n.toString().split('').map(e => Number(e))
-    for (let i = 0; i <= arr.length; i++) {
-        let temp = [];
-        for(let j = 1; j <= arr[i]; j++) {
-            temp.push(j)
-        }
-    }
+  const array = n
+    .toString()
+    .split("")
+    .map((e) => factorial(Number(e)));
+  return array.reduce((a, b) => a + b) === n ? "STRONG!!!!" : "Not Strong !!";
 }
 
-console.log(strong(145), "STRONG!!!!")
+function factorial(num) {
+  if (num === 0) return 1;
+  const array = Array(num)
+    .fill("")
+    .map((e, i) => (e = i + 1));
+  return array.reduce((a, b) => a * b);
+}
+
+console.log(strong(145), "STRONG!!!!");
